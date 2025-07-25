@@ -1,75 +1,44 @@
-# Nuxt Minimal Starter
+# Nuxt Docker App
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a Nuxt.js application configured to run in Docker.
 
-## Setup
+## Running with Docker
 
-Make sure to install dependencies:
+To run the application using Docker Compose:
 
 ```bash
-# npm
+# Build and start the containers
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+```
+
+The application will be available at http://localhost:3000
+
+## Development without Docker
+
+```bash
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start development server
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Environment Variables
 
-Build the application for production:
+The application uses the following environment variables when running in Docker:
+
+- `NITRO_HOST`: Set to "0.0.0.0" to allow external connections
+- `NITRO_PORT`: Set to "3000" for the application port
+
+## Building for Production
 
 ```bash
-# npm
-npm run build
+# Build the Docker image
+docker-compose build
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+# Run in production mode
+docker-compose up -d
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
